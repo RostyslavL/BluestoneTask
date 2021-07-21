@@ -7,7 +7,7 @@ const HomeScreen = () => {
 
     return (
         <>
-         <>
+
             <Row>
                 {Data.map((product)=>(
                     <Col
@@ -22,8 +22,7 @@ const HomeScreen = () => {
                     </Col>
                 ))}
                 </Row>
-                
-            </>   
+            
         </>
     )
 }
