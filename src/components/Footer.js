@@ -1,10 +1,16 @@
 import React from 'react'
-import {Container} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 
 const Footer = () => {
     return (
         <footer>
-            footer
+            <Container>
+                <Row>
+                    <Col className='text-center py-3'> 
+                        Copyright &copy; by RL for Bluestone Task
+                    </Col>
+                </Row>
+            </Container>
         </footer>
     )
 }
