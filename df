@@ -1,0 +1,35 @@
+[33mcommit 7513ca2c85f57bdba7625bea824a154bed980c46[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Rostyslav Lohvynov <rostyslav_lohvynov@sevenet.pl>
+Date:   Wed Jul 21 12:03:17 2021 +0200
+
+    feat: add dummy data for data representation
+
+[33mcommit bdc122f34454974dc28559dc279023d16f9ab7e7[m
+Author: Rostyslav Lohvynov <rostyslav_lohvynov@sevenet.pl>
+Date:   Wed Jul 21 11:23:13 2021 +0200
+
+    feat: add Header component  basic markup
+
+[33mcommit 7c009a5181f047c11429043762820b6c823c430a[m
+Author: Rostyslav Lohvynov <rostyslav_lohvynov@sevenet.pl>
+Date:   Wed Jul 21 09:21:29 2021 +0200
+
+    feat: add footer to the project
+
+[33mcommit b4c58b76b2fcc95f968e3a02a70fce429c5723bc[m
+Author: Rostyslav Lohvynov <rostyslav_lohvynov@sevenet.pl>
+Date:   Wed Jul 21 09:17:15 2021 +0200
+
+    feat: add react bootstrap & bootsrapt theme to project
+
+[33mcommit d884890f6822f52b9553d30f492c2652042f2000[m
+Author: Rostyslav Lohvynov <rostyslav_lohvynov@sevenet.pl>
+Date:   Wed Jul 21 08:44:29 2021 +0200
+
+    init: create basic project setup configuration with entry files
+
+[33mcommit e3fd47e09977193dd0b35cf7db40dd66e6f06a65[m
+Author: Rostyslav Lohvynov <rostyslav_lohvynov@sevenet.pl>
+Date:   Wed Jul 21 08:26:09 2021 +0200
+
+    Initialize project using Create React App
