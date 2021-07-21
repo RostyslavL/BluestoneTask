@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <Header/>
-        <main>
+      <main className="py-3">
           <Container>
-          <h1>Product Screen</h1>
+          <h1>Products Screen</h1>
           </Container>
         </main>
       <Footer/>
