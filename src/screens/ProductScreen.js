@@ -37,7 +37,7 @@ const ProductScreen = ({match}) => {
             <Link className='btn btn-dark btn-sm my-3' to='/'>
                 <i className="fas fa-arrow-alt-circle-left"> Go Back </i>
             </Link>
-                <h1>Product Name: {product.name}</h1>
+                <h1>Product Name: {product.name.toUpperCase()}</h1>
                 <h2>Prouct ID : <b>{product._id}</b> </h2> 
                 <Row>
             <Col md={6}>
