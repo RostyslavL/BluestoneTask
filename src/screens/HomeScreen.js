@@ -2,12 +2,12 @@ import React from 'react';
 import Data from '../data/data.json';
 import { Row , Col} from 'react-bootstrap';
 import Product from '../components/Product';
+// import Loader from '../components/Loader';
 
 const HomeScreen = () => {
 
     return (
         <>
-
             <Row>
                 {Data.map((product)=>(
                     
@@ -18,8 +18,7 @@ const HomeScreen = () => {
                         lg={3}
                         xlg={2}
                         >
-                            
-                        <h2>{product.name}</h2>
+                        <h2>{product.name.toUpperCase()}</h2>
                         <Product product={product}/>
                     </Col>
                 ))}

@@ -1,19 +1,23 @@
 import React from 'react'
-import {Card,Button} from 'react-bootstrap'
+import {Card,Button, } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
+import Data from '../data/data.json';
 
 const Product = ({product}) => {
     
     const countInStock = product.images.length
+    
+    const src = Data.map((item)=>item.images.map((img)=>img.url)).flatMap(i=>i)
+
+    console.log(src)
 
     return (
     <>
         <Link to={`/product/${product._id}`}>
-
+        {src.map((item) => 
             <Card className="my-3 p-4 rounded">
-                <Link to={`/product/${product._id}`}>
-                    <Card.Img src={`src}`} variant="top"></Card.Img>
-                </Link>
+                   <Card.Img src={item} variant="top" />
+                    
                 <Card.Body>                
                         <Card.Title as="div">
                         <Link to={`/product/${product._id}`}>
@@ -31,6 +35,7 @@ const Product = ({product}) => {
                         </Card.Title>
                 </Card.Body>
             </Card>
+        )}
         </Link>
     </>
     )
