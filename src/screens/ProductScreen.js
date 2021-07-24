@@ -22,7 +22,7 @@ const ProductScreen = ({match}) => {
     // console.log(product)
     // console.log(product.images)
 
-    const [{url: src , name: neme}] = product.images;
+    const [{url: src , name: neme}] = product.images
 
     // const [{ name: neme}] = product.images;
 

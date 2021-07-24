@@ -31,7 +31,7 @@ const Product = ({product}) => {
     
     const countInStock = product.images.length
     
-    const src = data.map((item) => item.images.map((img)=>img.url)).flatMap(i=>i)
+    const src = data.map((item) => item.images.map((img) => img.url)).flatMap((i) => i)
 
     console.log(src)
 
