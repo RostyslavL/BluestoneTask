@@ -1,23 +1,46 @@
-import React from 'react'
+import React , {useState, useEffect} from 'react'
 import {Card,Button, } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
-import Data from '../data/data.json';
+// import Data from '../data/data.json';
 
 const Product = ({product}) => {
+
+    const [data,setData] = useState([]);
+
+    const dataUrl =  'data.json'
+
+    const getData = () =>{
+        fetch(dataUrl
+        ,{
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        })
+          .then(function(response){
+            return response.json()
+        })
+          .then(function(data) {
+            setData(data)
+        });
+    }
+    useEffect(()=>{
+      getData()
+    },[])
+
     
     const countInStock = product.images.length
     
-    const src = Data.map((item)=>item.images.map((img)=>img.url)).flatMap(i=>i)
+    const src = data.map((item) => item.images.map((img)=>img.url)).flatMap(i=>i)
 
     console.log(src)
 
     return (
     <>
-        <Link to={`/product/${product._id}`}>
+        
         {src.map((item) => 
             <Card className="my-3 p-4 rounded">
-                   <Card.Img src={item} variant="top" />
-                    
+                   <Card.Img src={item} variant="top" /> 
                 <Card.Body>                
                         <Card.Title as="div">
                         <Link to={`/product/${product._id}`}>
@@ -36,7 +59,7 @@ const Product = ({product}) => {
                 </Card.Body>
             </Card>
         )}
-        </Link>
+
     </>
     )
 }
