@@ -14,7 +14,7 @@ import {
 } from 'react-bootstrap'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
-const CartScreen = ({ match, location, history }) => {
+const CartScreen = ({ match, location }) => {
     
     const productID = match.params.id
 

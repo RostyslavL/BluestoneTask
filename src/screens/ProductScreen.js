@@ -10,7 +10,8 @@ import { Row,
     Collapse
 } from 'react-bootstrap'
 
-import Data from '../data/data.json';
+// import Data from '../data/data.json';
+
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/productActions'
 import Message from '../components/Message'
@@ -18,36 +19,19 @@ import Loader from '../components/Loader'
 
 const ProductScreen = ({history, match}) => {
     
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-    // const productDetails = useSelector((state) => state.productDetails)
-    // const { loading, error, product } = productDetails
+    const productDetails = useSelector((state) => state.productDetails)
+    const { loading, error, product } = productDetails
 
-    // useEffect(() =>{
-    //     dispatch(listProductDetails(match.params.id))
-    // },[dispatch, match])
+    useEffect(() =>{
+        dispatch(listProductDetails(match.params.id))
+    },[dispatch, match])
 
-    const product_bak = Data.find((el) => el._id === match.params.id)
+    // const product_bak = product
 
-    const countInStock = product_bak.images.length
+    const {images} = product
     
-    // console.log(product)
-    // console.log(product.images)
-
-    const [{url: src , name: neme}] = product_bak.images
-
-    // const [{ name: neme}] = product.images;
-
-
-    // const src1 = Data.map((item)=>item.images.map((img)=>img.url)).flatMap(i=>i)
-
-    // console.log(src1)
-    // console.log(src)
-    // console.log(neme)
-    console.log(product_bak)
-
-    console.log(match)
-
     const [open, setOpen] = useState(false)
     const [qty, setQty] = useState(1)
 
@@ -57,27 +41,35 @@ const ProductScreen = ({history, match}) => {
 
     return (
         <>
+        
             <Link className='btn btn-dark btn-sm my-3' to='/'>
                 <i className="fas fa-arrow-alt-circle-left"> Go Back </i>
             </Link>
-                <h1>Product Name: {product_bak.name.toUpperCase()}</h1>
-                <h2>Prouct ID : <b>{product_bak._id}</b> </h2> 
-            {/* {loading ? (
+                <h1>Product Name: {product.name}</h1>
+                <h2>Prouct ID : <b>{product._id}</b> </h2> 
+            {loading ? (
                 <Loader />
                 ) : error ? (
                 <Message variant='danger'>{error}</Message>
-                ) : ( */}
+                ) : (
                     <Row>
                         <Col md={6}> 
-                            <Image src={src} alt={neme} fluid />           
+                        {images ?
+                          Object.values(images).map((img) => img.url).flatMap((src) =>
+                             <Image src={src} alt={product.name} fluid />            
+                            )
+                            :(
+                              <Image src='sample.jpg' alt={product.name} fluid />            
+                            )
+                          } 
                         </Col>
                         <Col md={3}>
                           <ListGroup variant='flush'>
                             <ListGroup.Item>
-                              <h3> Product Name : </h3> <i>{product_bak.name}</i>
+                              <h3> Product Name : </h3> <i>{product.name}</i>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                            <h3> Product Number :</h3> <i>{product_bak.number}</i>
+                            <h3> Product Number :</h3> <i>{product.number}</i>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                     <Button
@@ -92,7 +84,7 @@ const ProductScreen = ({history, match}) => {
                                         <div id="description-collapse-text">
                                             <h4> 
                                                 <i>
-                                                    {product_bak.description} 
+                                                    {product.description} 
                                                 </i>
                                             </h4> 
                                         </div>
@@ -107,7 +99,7 @@ const ProductScreen = ({history, match}) => {
                                 <Row>
                                   <Col>Status:</Col>
                                   <Col>
-                                    {countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
+                                    {product.id > 0 ? 'In Stock' : 'Out Of Stock'}
                                   </Col>
                                 </Row>
                               </ListGroup.Item>
@@ -121,7 +113,7 @@ const ProductScreen = ({history, match}) => {
                                         value={qty}
                                         onChange={(e) => setQty(e.target.value)}
                                       >
-                                        {[...Array(countInStock).keys()].map(
+                                        {[...Array(product.id ).keys()].map(
                                           (x) => (
                                             <option key={x + 1} value={x + 1}>
                                               {x + 1}
@@ -138,7 +130,7 @@ const ProductScreen = ({history, match}) => {
                                   onClick={addToCartHandler}
                                   className='btn-block btn-dark '
                                   type='button'
-                                  disabled={countInStock === 0}
+                                  disabled={product.id  === 0}
                                 >
                                   Add To Cart
                                 </Button>
@@ -147,8 +139,8 @@ const ProductScreen = ({history, match}) => {
                           </Card>
                         </Col>
                     </Row>
-                {/* )
-            } */}
+               )
+            }
         </>
     )
 }
