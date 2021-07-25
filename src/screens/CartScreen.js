@@ -39,7 +39,7 @@ const CartScreen = ({ match, location }) => {
     
     return(
         <>
-        <Link className='btn btn-dark btn-sm my-3' to='/'>
+        <Link className='btn btn-dark btn-sm my-3' to={`/products/${productID}`}>
                 <i className="fas fa-arrow-alt-circle-left"> Go Back </i>
             </Link>
             <Row>
