@@ -1,6 +1,5 @@
 import React , { useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-// import Data from '../data/data.json';
 import { Row , Col} from 'react-bootstrap';
 import Product from '../components/Product';
 import Loader from '../components/Loader';
@@ -17,8 +16,6 @@ const HomeScreen = () => {
     useEffect(()=>{
         dispatch(listProducts())
     },[dispatch])
-
-    // console.log(data);
 
     return (
         <>
@@ -38,8 +35,6 @@ const HomeScreen = () => {
                             lg={4}
                             xlg={3}
                             >
-                            {/* <h2>{product.name.toUpperCase()}</h2> */}
-
                             <Product product={product}/>
                         </Col>
                     ))}
