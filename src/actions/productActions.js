@@ -9,13 +9,13 @@ import {
 } from '../constants/productConstants.js'
 import axios from 'axios'
 
-const dataUrl =  'data.json'
+const dataUrl =  'http://localhost:8000'
 
 export const listProducts = () => async (dispatch) =>{
     try {
         dispatch({type: PRODUCT_LIST_REQUEST })
 
-        const {data} = await axios.get(dataUrl)
+        const {data} = await axios.get(`${dataUrl}/products`)
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
