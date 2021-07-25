@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/BluestoneTask/static/css/main.fc1c00e2.chunk.css",
+    "main.js": "/BluestoneTask/static/js/main.db392b8c.chunk.js",
+    "main.js.map": "/BluestoneTask/static/js/main.db392b8c.chunk.js.map",
+    "runtime-main.js": "/BluestoneTask/static/js/runtime-main.9bb5f9fc.js",
+    "runtime-main.js.map": "/BluestoneTask/static/js/runtime-main.9bb5f9fc.js.map",
+    "static/js/2.4d7021fd.chunk.js": "/BluestoneTask/static/js/2.4d7021fd.chunk.js",
+    "static/js/2.4d7021fd.chunk.js.map": "/BluestoneTask/static/js/2.4d7021fd.chunk.js.map",
+    "static/js/3.6915120d.chunk.js": "/BluestoneTask/static/js/3.6915120d.chunk.js",
+    "static/js/3.6915120d.chunk.js.map": "/BluestoneTask/static/js/3.6915120d.chunk.js.map",
+    "index.html": "/BluestoneTask/index.html",
+    "static/css/main.fc1c00e2.chunk.css.map": "/BluestoneTask/static/css/main.fc1c00e2.chunk.css.map",
+    "static/js/2.4d7021fd.chunk.js.LICENSE.txt": "/BluestoneTask/static/js/2.4d7021fd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9bb5f9fc.js",
+    "static/js/2.4d7021fd.chunk.js",
+    "static/css/main.fc1c00e2.chunk.css",
+    "static/js/main.db392b8c.chunk.js"
+  ]
+}
