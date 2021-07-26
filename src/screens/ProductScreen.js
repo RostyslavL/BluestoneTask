@@ -10,8 +10,6 @@ import { Row,
     Collapse
 } from 'react-bootstrap'
 
-// import Data from '../data/data.json';
-
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/productActions'
 import Message from '../components/Message'
@@ -28,8 +26,6 @@ const ProductScreen = ({history, match}) => {
         dispatch(listProductDetails(match.params.id))
     },[dispatch, match])
 
-    // const product_bak = product
-
     const {images} = product
     
     const [open, setOpen] = useState(false)
@@ -41,7 +37,6 @@ const ProductScreen = ({history, match}) => {
 
     return (
         <>
-        
             <Link className='btn btn-dark btn-sm my-3' to='/'>
                 <i className="fas fa-arrow-alt-circle-left"> Go Back </i>
             </Link>
@@ -66,10 +61,10 @@ const ProductScreen = ({history, match}) => {
                         <Col md={3}>
                           <ListGroup variant='flush'>
                             <ListGroup.Item>
-                              <h3> Product Name : </h3> <i>{product.name}</i>
+                              <h2> Product Name : </h2> <i>{product.name}</i>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                            <h3> Product Number :</h3> <i>{product.number}</i>
+                            <h2> Product Number :</h2> <i>{product.number}</i>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                     <Button
@@ -134,6 +129,18 @@ const ProductScreen = ({history, match}) => {
                                 >
                                   Add To Cart
                                 </Button>
+                                
+                              </ListGroup.Item>
+                              <ListGroup.Item>
+
+                              <Link className='btn btn-dark btn-sm my-3' to={`/products/${product._id}/edit`}>                              
+                                <Button 
+                                      className='btn-block btn-dark'
+                                      type='button'  
+                                      >
+                                    <i className="fas fa-edit"> Edit Product </i>
+                                </Button>
+                                </Link>
                               </ListGroup.Item>
                             </ListGroup>
                           </Card>

@@ -5,7 +5,12 @@ import {
 
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL ,  
+    PRODUCT_DETAILS_FAIL ,
+    
+    PRODUCT_UPDATE_REQUEST,
+    PRODUCT_UPDATE_SUCCESS,
+    PRODUCT_UPDATE_FAIL,
+
 } from '../constants/productConstants.js'
 import axios from 'axios'
 
@@ -51,3 +56,40 @@ export const listProductDetails = (id) => async (dispatch) => {
       })
     }
   }
+
+
+  export const updateProduct = (product) => async (
+    dispatch, 
+    ) =>{
+    try {
+        dispatch({
+            type: PRODUCT_UPDATE_REQUEST
+        })
+
+        const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+        }
+
+        const { data } = await axios.put(
+          `${dataUrl}/products/${product._id}`,
+          product,
+          config
+        ) 
+       
+      dispatch({ 
+        type: PRODUCT_UPDATE_SUCCESS,
+        payload: data
+     })
+        
+    } catch (error) {
+        dispatch({
+          type: PRODUCT_UPDATE_FAIL,
+          payload:
+            error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+        })
+    }
+}

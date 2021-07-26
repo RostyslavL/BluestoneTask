@@ -16,7 +16,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = ({ match, location }) => {
     
-    const productID = match.params.id
+    const productId = match.params.id
 
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
@@ -27,10 +27,10 @@ const CartScreen = ({ match, location }) => {
     const { cartItems } = cart
  
     useEffect(() => {
-        if(productID){
-            dispatch(addToCart(productID, qty))
+        if(productId){
+            dispatch(addToCart(productId, qty))
         }
-    }, [dispatch, productID, qty])
+    }, [dispatch, productId, qty])
 
     const removeFromCartandler = (id) => {
         dispatch(removeFromCart(id))
@@ -39,8 +39,8 @@ const CartScreen = ({ match, location }) => {
     
     return(
         <>
-        <Link className='btn btn-dark btn-sm my-3' to={`/products/${productID}`}>
-                <i className="fas fa-arrow-alt-circle-left"> Go Back </i>
+        <Link className='btn btn-dark btn-sm my-3' to='/'>
+                <i className="fas fa-arrow-alt-circle-left"> Go Back To Home Page </i>
             </Link>
             <Row>
             <Col md={8} >
